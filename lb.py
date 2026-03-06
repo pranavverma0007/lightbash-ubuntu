@@ -1,4 +1,4 @@
-import tkinter as tk
+			import tkinter as tk
 from tkinter import filedialog, messagebox
 import subprocess
 import os
@@ -50,7 +50,7 @@ class BashEditor(tk.Tk):
 
         self.input_frame = tk.Frame(self.right_paned, height=210)
         tk.Label(self.input_frame, text="Script Arguments:", anchor="w").pack(fill=tk.X)
-        self.input_area = tk.Text(self.input_frame, height=5, font=(self.font_family, self.font_size))
+        self.input_area = tk.Text(self.input_frame, height=5, font=(self.font_family, self.font_size), insertbackground="black")
         self.input_area.pack(fill=tk.BOTH, expand=1)
         self.right_paned.add(self.input_frame)
 
@@ -60,7 +60,7 @@ class BashEditor(tk.Tk):
         self.btn_clear = tk.Button(self.output_frame, text="Clear Output", command=lambda: self.output_area.delete(1.0, tk.END))
         self.btn_clear.pack(fill=tk.X)
         
-        self.output_area = tk.Text(self.output_frame, bg="#1e1e1e", fg="#00ff00", font=(self.font_family, self.font_size))
+        self.output_area = tk.Text(self.output_frame, bg="#1e1e1e", fg="#00ff00", font=(self.font_family, self.font_size), insertbackground="white")
         self.output_area.pack(fill=tk.BOTH, expand=1)
         self.output_area.tag_configure("error", foreground="#ff6666")
         
@@ -127,7 +127,7 @@ class BashEditor(tk.Tk):
         line_numbers = tk.Text(frame, width=4, padx=3, takefocus=0, border=0, bg='#e0e0e0', state='disabled')
         line_numbers.pack(side=tk.LEFT, fill=tk.Y)
         
-        text_area = tk.Text(frame, undo=True, wrap=tk.NONE, tabs=('1c',))
+        text_area = tk.Text(frame, undo=True, wrap=tk.NONE, tabs=('1c',), insertbackground="black")
         text_area.pack(side=tk.RIGHT, fill=tk.BOTH, expand=1)
         text_area.insert(1.0, content)
         
